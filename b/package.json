@@ -1,0 +1,16 @@
+{
+  "name": "b",
+  "version": "1.0.0",
+  "main": "popup.js",
+  "type": "module",
+  "scripts": {
+    "start": "node popup.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "node": "^22.16.0"
+  }
+}
