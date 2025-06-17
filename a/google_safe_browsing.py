@@ -1,5 +1,5 @@
 from pysafebrowsing import SafeBrowsing
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
@@ -7,8 +7,19 @@ app = Flask(__name__)
 def a():
     return render_template('popup.html')
 
+
+@app.route('/data', methods = ['GET', 'POST'])
+def data():
+    if request.method == 'GET':
+        return jsonify({'data' : 'get'})
+    
+    else:
+        json_data = request.get_json()
+        print(json_data)
+
 if __name__ == '__main__':
     app.run()
+
 
 # sb = SafeBrowsing(API_KEY)
 

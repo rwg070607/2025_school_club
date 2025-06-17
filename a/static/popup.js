@@ -29,7 +29,20 @@ Html5Qrcode.getCameras()
     console.error("Unable to get cameras", err);
   });
 
-fetch('http://127.0.0.1:5000/data')
-  .then((res) => res.json())  // 응답을 JSON 형식으로 파싱
-  .then((data) => console.log(data))
-  .catch((err) => console.log('Error:', err));
+fetch('http://127.0.0.1:5000/data', {
+  method : 'GET'
+})
+  .then((res) => res.json())
+  .then(data => {
+    console.log(data['data'])
+  })
+  
+fetch('http://127.0.0.1:5000/data', {
+  headers : {
+    'Content-Type': 'application/json'
+  },
+  method : 'POST',
+  body : JSON.stringify({
+    data:'post'
+  })
+})
